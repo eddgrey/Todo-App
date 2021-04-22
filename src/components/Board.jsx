@@ -3,7 +3,7 @@ import Category from './Category'
 
 const Board = () => {
     return (
-        <section className="flex flex-row">
+        <section className="flex flex-row bg-gray-200 justify-around">
             <Category title={"To do"}/>
             <Category title={"Doing"}/>
             <Category title={"Done"}/>

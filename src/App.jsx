@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import Board from './components/Board'
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
 
     return (
         <main>
+            <h1>Todo App</h1>
             <Board />
             {/* <section>
                 {todos.map(({ id, description}) => <Todo key={id} id={id} task={description} deleteTodo={deleteTodo} editTodo={editTodo}/>)}
