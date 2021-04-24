@@ -9,13 +9,11 @@ const Category = ({title, todos, setTodos, handleChangeCategory}) => {
 
     const todosCount = () => todos.filter(todo => todo.category === title).length
 
-    const categoryColor = title === "ToDo" ? "orange" : title === "Doing" ? "green" : "blue"
-
-    const addButton = "px-6 py-1 border rounded-sm bg-lightBlue-200 text-lightBlue-600 focus:outline-none focus:ring w-full mb-3"
+    const categoryColor = title === "ToDo" ? "bg-orange-400" : title === "Doing" ? "bg-green-400" : "bg-blue-400"
 
     return (
         <section className={`flex flex-col m-4 border w-3/4 px-2 md:w-1/3 lg:w-1/4`}>
-            <header className={`flex flex-row justify-around py-4 text-gray-50 bg-${categoryColor}-400 bg-teal-400 mb-2`}>
+            <header className={`categoryHeader ${categoryColor}`}>
                 <h3 className="text-lg font-bold">{title}</h3>
                 <p>Tasks: {todosCount()}</p>
                 <button onClick={() => setHidden(v => !v)} className="focus:outline-none">
@@ -26,7 +24,7 @@ const Category = ({title, todos, setTodos, handleChangeCategory}) => {
                 {visibleForm? 
                     <Form todos={todos} setTodos={setTodos} action="add" visible={setVisibleForm} color={categoryColor} category={title}/> 
                 : 
-                <button className={`${addButton}`} onClick={() => setVisibleForm(true)}>
+                <button className="button--add" onClick={() => setVisibleForm(true)}>
                     <span className="mr-4">
                         <i className="fas fa-plus"/>
                     </span>
@@ -51,7 +49,7 @@ const Category = ({title, todos, setTodos, handleChangeCategory}) => {
                                 )
                             )
                         :
-                        <p>Empty list</p>
+                        <p className="text-center">Empty</p>
                     }
                 </div>
                     :

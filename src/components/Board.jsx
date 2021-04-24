@@ -4,8 +4,8 @@ import Category from './Category'
 const Board = () => {
 
     const initalState = [
-        {id: "fjaslk", description: "Leer pdf", priority: "medium", category: "ToDo"},
-        {id: "fk2", description: "Learn React", priority: "low", category: "Doing"},
+        {id: "fjaslk", description: "Read pdf", priority: "low", category: "ToDo"},
+        {id: "fk2", description: "Learn React", priority: "high", category: "Doing"},
         {id: "fk3", description: "Open Todo App", priority: "medium", date: "today", category:"Done"},
     ]
 

@@ -8,19 +8,21 @@ const Todo = ({ description, id, priority, date, category, todos, setTodos, colo
         setTodos(todos.filter(todo => todo.id !== idToDelete))
     )
 
-    const priorityColor = priority === "high" ? "red" : priority === "medium" ? "yellow" : "blue"
+    const priorityColor = priority === "high" ? "bg-red-500" : priority === "medium" ? "bg-yellow-500" : "bg-blue-500"
+
+    const borderColor = `border-${color}-500`
 
     const complete = category === "Done" ? true : false
 
     return (
         !edit ?
-        <div className={`container mb-4 flex flex-col justify-around border-l-4 border-${color}-500 bg-gray-100 py-2 pr-2`}>
+        <div className={`todo ${borderColor}`}>
             <div className="flex flex-row justify-between pl-4 mb-2">
                 <div>
                     <button onClick={() => setEdit(e => !e)}>
                         <i className="fas fa-edit"></i>
                     </button>
-                    <span className={`py-1 px-2 ml-2 text-white text-xs bg-${priorityColor}-500 border rounded-md w-20 text-center`}>
+                    <span className={`priority ${priorityColor}`}>
                         {priority}
                     </span>
                 </div>
@@ -35,8 +37,9 @@ const Todo = ({ description, id, priority, date, category, todos, setTodos, colo
                     type="checkbox" 
                     defaultChecked={complete} 
                     onClick={() => handleChangeCategory(id)}
+                    className="ml-4"
                 />
-                <label htmlFor={id} className="pl-4 h-10">{description}</label>
+                <label htmlFor={id} className="pl-2 h-10">{description}</label>
                 <p className="text-right"> 
                     <span className="mr-2">
                         <i className="fas fa-calendar-alt"/>

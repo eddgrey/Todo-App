@@ -48,13 +48,12 @@ const Form = ({ todos, setTodos, visible, action, currentTask="",id, color, cate
             }
         }
     }
-
-    const button = "px-4 py-1 border rounded-xl focus:outline-none focus:ring"
+    const categoryColor = color === "bg-orange-400"? "border-orange-700" : color === "bg-green-400"? "border-green-700" : "border-blue-700"
 
     return (
 
-        <form onSubmit={accept} className={`flex flex-col bg-gray-50 py-4 px-2 my-4 border-4 border-${color}-700`}>
-            <input type="text" value={task} onChange={handleTask} className={`border border-${color}-600 focus:outline-none p-2 mb-2`}/>
+        <form onSubmit={accept} className={`form--todo ${categoryColor}`}>
+            <input type="text" value={task} onChange={handleTask} className={`border ${categoryColor} focus:outline-none p-2 mb-2`}/>
 
             {emptyTask 
                 ? <p className="text-red-600 text-sm italic">*Obligatory</p> 
@@ -67,7 +66,7 @@ const Form = ({ todos, setTodos, visible, action, currentTask="",id, color, cate
                     <option value='low'>Low</option>
                 </select>
             </div>
-            <input type="date" className={`border border-${color}-700 focus:outline-none p-2 mt-2`}/>
+            <input type="date" className={`border ${categoryColor} focus:outline-none p-2 mt-2`}/>
 
             {   emptyDate 
                 ? <p className="text-red-600 text-sm italic">*Obligatory</p>
@@ -75,10 +74,10 @@ const Form = ({ todos, setTodos, visible, action, currentTask="",id, color, cate
             }
             
             <div className="flex flex-row justify-around my-4">
-                <button type="submit" className=" px-4 py-1 border rounded-xl bg-green-500 focus:outline-none focus:ring focus:bg-green-400 foucus:bg-green-400">Accept <span className="ml-2">
+                <button type="submit" className="button bg-green-500  focus:bg-green-400">Accept <span className="ml-2">
                     <i className="far fa-check-circle"></i>
                     </span></button>
-                <button onClick={cancel} className={`${button} bg-red-500 focus:bg-red-400 py-1`}>Cancel <span className="ml-2"><i className="far fa-times-circle"></i></span></button> 
+                <button onClick={cancel} className={`button bg-red-500 focus:bg-red-400 py-1`}>Cancel <span className="ml-2"><i className="far fa-times-circle"></i></span></button> 
             </div>
         </form>
     )
