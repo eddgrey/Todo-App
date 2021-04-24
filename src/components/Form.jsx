@@ -35,7 +35,6 @@ const Form = ({ todos, setTodos, visible, action, currentTask="",id, color, cate
         const priority = e.target[1].value
         const date = e.target[2].value
         e.preventDefault()
-        console.log(date)
         
         if(task.length === 0 || date.length === 0){
             setEmptyTask(task.length === 0)

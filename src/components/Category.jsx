@@ -43,7 +43,8 @@ const Category = ({title, todos, setTodos, handleChangeCategory}) => {
                                     key={id} id={id} 
                                     description={description} 
                                     priority={priority} date={date} 
-                                    todos={todos} setTodos={setTodos} 
+                                    todos={todos} setTodos={setTodos}
+                                    category={title}
                                     color={categoryColor}
                                     handleChangeCategory={handleChangeCategory}
                                 />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "./Form";
 
-const Todo = ({ description, id, priority, date, todos, setTodos, color, handleChangeCategory}) => {
+const Todo = ({ description, id, priority, date, category, todos, setTodos, color, handleChangeCategory}) => {
     const [edit, setEdit] = useState(false)
 
     const deleteTodo = idToDelete => (
@@ -9,6 +9,8 @@ const Todo = ({ description, id, priority, date, todos, setTodos, color, handleC
     )
 
     const priorityColor = priority === "high" ? "red" : priority === "medium" ? "yellow" : "blue"
+
+    const complete = category === "Done" ? true : false
 
     return (
         !edit ?
@@ -23,7 +25,7 @@ const Todo = ({ description, id, priority, date, todos, setTodos, color, handleC
                     </span>
                 </div>
                 <button onClick={() => deleteTodo(id)} className="">
-                    <i className="far fa-trash-alt"></i>
+                    <i className="far fa-trash-alt"/>
                 </button>
             </div>
 
@@ -31,13 +33,13 @@ const Todo = ({ description, id, priority, date, todos, setTodos, color, handleC
                 <input 
                     id={id} 
                     type="checkbox" 
-                    defaultChecked={true} 
+                    defaultChecked={complete} 
                     onClick={() => handleChangeCategory(id)}
                 />
                 <label htmlFor={id} className="pl-4 h-10">{description}</label>
                 <p className="text-right"> 
                     <span className="mr-2">
-                        <i className="fas fa-calendar-alt"></i>
+                        <i className="fas fa-calendar-alt"/>
                     </span>
                     {date}
                 </p>
