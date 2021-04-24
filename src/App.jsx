@@ -1,19 +1,13 @@
-// import { useState } from 'react'
 import Board from './components/Board'
 
 const App = () => {
-    // const [task, setTask] = useState("agregar tarea")
-    // const [todos, setTodos] = useState([])
-
-    // const handleTask = (e) => setTask(e.target.value)
 
     return (
-        <main>
-            <h1>Todo App</h1>
-            <Board />
-            {/* <section>
-                {todos.map(({ id, description}) => <Todo key={id} id={id} task={description} deleteTodo={deleteTodo} editTodo={editTodo}/>)}
-            </section> */}
+        <main className="bg-gray-200 max-w-screen min-h-screen">
+            <header className=" bg-gray-700 text-gray-50 p-4 md:py-6 text-center">
+                <h1 className="text-4xl font-bold">Todo App</h1>
+            </header>
+            <Board/>
         </main>
     )
 }
